@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pranay Kumar Piyush, backend engineer working with Java, Spring Boot and Google Cloud.">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Pranay Kumar Piyush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a sticky identity rail on the left and the work as a release log on the right; one column on phones.
+   Hero is a startup log, because that is the world the work lives in. */
+:root{
+  --bg:#F1F4F1;          /* cool sage paper */
+  --surface:#FFFFFF;
+  --fg:#131917;
+  --muted:#58655F;
+  --line:#D5DDD7;
+  --accent:#2E7D3B;      /* Spring leaf */
+  --accent-soft:#E2EFE1;
+  --link:#2F4FB5;
+  --term-bg:#18201C;
+  --term-fg:#DCE6DE;
+  --term-dim:#8A9A90;
+  --term-info:#7FC46D;
+  --term-key:#E8B95A;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1412; --surface:#161D1A; --fg:#E5ECE7; --muted:#9AA9A1; --line:#26312C;
+    --accent:#7CC46A; --accent-soft:#1D2B21; --link:#9DB1FF;
+    --term-bg:#0A0E0C; --term-fg:#DCE6DE; --term-dim:#7C8C82; --term-info:#7FC46D; --term-key:#E8B95A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --surface:#161D1A; --fg:#E5ECE7; --muted:#9AA9A1; --line:#26312C;
+  --accent:#7CC46A; --accent-soft:#1D2B21; --link:#9DB1FF;
+  --term-bg:#0A0E0C; --term-fg:#DCE6DE; --term-dim:#7C8C82; --term-info:#7FC46D; --term-key:#E8B95A;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-block:56px 72px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px}
+
+/* rail */
+.rail{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 32px);align-self:start;display:flex;flex-direction:column;gap:22px}
+.mark{width:56px;height:56px;border-radius:14px;background:var(--accent);color:var(--bg);display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.rail h1{font-size:40px;font-weight:800;letter-spacing:-.025em}
+.role{font-size:15px;color:var(--muted)}
+.role strong{color:var(--fg);font-weight:600}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+.facts li{display:flex;gap:10px}
+.facts span:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;width:64px;flex:none;padding-top:3px;color:var(--muted)}
+.facts span:last-child{color:var(--fg)}
+nav.toc{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line);padding-top:16px}
+nav.toc a{color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0;display:flex;gap:10px;align-items:baseline}
+nav.toc a:hover{color:var(--fg)}
+nav.toc code{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 14px var(--body);color:var(--fg);background:var(--surface);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+/* main */
+main{min-width:0;display:flex;flex-direction:column;gap:88px}
+section{display:flex;flex-direction:column;gap:28px;scroll-margin-top:24px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h2{font-size:34px;font-weight:700;letter-spacing:-.02em}
+.lede{font-size:19px;max-width:62ch;color:var(--fg)}
+.lede em{font-style:normal;background:linear-gradient(transparent 62%, var(--accent-soft) 62%)}
+
+/* terminal hero */
+.term{background:var(--term-bg);color:var(--term-fg);border-radius:14px;overflow:hidden;font-family:var(--mono);font-size:13px;line-height:1.75}
+.term-bar{display:flex;align-items:center;gap:8px;white-space:nowrap;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.07);color:var(--term-dim);font-size:12px}
+.dots{display:flex;gap:6px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--term-dim);opacity:.45;display:block}
+.term-body{padding:18px 20px 20px;overflow-x:auto;white-space:pre}
+.t-dim{color:var(--term-dim)} .t-info{color:var(--term-info)} .t-key{color:var(--term-key)}
+.banner{color:var(--term-info);font-weight:500;line-height:1.05;display:inline-block;margin-bottom:8px}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--term-info);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.term-bar > span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.replay{margin-left:auto;flex:none;background:none;border:1px solid rgba(255,255,255,.14);color:var(--term-dim);font:12px var(--mono);border-radius:6px;padding:3px 9px;cursor:pointer}
+.replay:hover{color:var(--term-fg)}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.metric{background:var(--surface);padding:20px 18px;display:flex;flex-direction:column;gap:6px}
+.metric b{font-family:var(--display);font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.metric span{font-size:13px;color:var(--muted);line-height:1.45}
+
+/* release log */
+.log{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.rel{position:relative;padding:0 0 40px 28px;display:flex;flex-direction:column;gap:12px}
+.rel:last-child{padding-bottom:0}
+.rel::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.rel.current::before{background:var(--accent)}
+.rel-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.ver{font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px}
+.rel h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.when{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;max-width:68ch}
+.rel li{padding-left:22px;position:relative;font-size:15.5px}
+.rel li::before{content:"+";position:absolute;left:0;font-family:var(--mono);color:var(--accent);font-weight:500}
+.co{font-size:14px;color:var(--muted)}
+.aside-note{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:16px 20px;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.aside-note p{font-size:15.5px}
+.earlier{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.earlier div{border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;font-size:14px}
+.earlier b{font-weight:600}
+.earlier span{color:var(--muted)}
+
+/* side projects */
+.side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:21px;font-weight:700}
+.card p{font-size:15px;color:var(--fg)}
+.card .foot{margin-top:auto;padding-top:6px;font-size:14px;display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted)}
+.card.wide{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center}
+.card.wide .inner{display:flex;flex-direction:column;gap:10px}
+.lfs{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;white-space:pre}
+.lfs .ok{color:var(--accent)}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px}
+.stack h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;background:var(--surface)}
+.chip.k{border-color:var(--accent);color:var(--accent);font-weight:500}
+
+/* education */
+.edu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.edu-main{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px;background:var(--surface)}
+.edu-main h3{font-size:21px}
+.certs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.certs li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.certs li:first-child{padding-top:0}
+.certs span{color:var(--muted);font-size:13px;white-space:nowrap;font-family:var(--mono)}
+
+/* contact */
+.contact{border:1px solid var(--line);border-radius:18px;padding:32px;background:var(--surface);display:flex;flex-direction:column;gap:18px}
+.contact h2{font-size:40px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail code{font-family:var(--mono);font-size:17px;user-select:all;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px;overflow-wrap:anywhere}
+.copied{font-size:13px;color:var(--accent)}
+footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
+
+@media (max-width: 900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:28px 56px}
+  .rail{position:static}
+  nav.toc{display:none}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .side,.stack,.edu{grid-template-columns:minmax(0,1fr)}
+  .card.wide{grid-template-columns:minmax(0,1fr)}
+  main{gap:64px}
+}
+@media (max-width: 480px){
+  .rail h1{font-size:34px}
+  h2{font-size:28px}
+  .contact{padding:22px}
+  .contact h2{font-size:30px}
+  .term{font-size:12px}
+  .term-body{white-space:pre-wrap;padding:16px 14px 18px}
+  .term-body .banner{white-space:pre;font-size:11px}
+  .metric b{font-size:30px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cursor{animation:none}
+  .term-body .ln{animation:none!important;opacity:1!important}
+}
+.term-body.play .ln{opacity:0;animation:ln .01s linear forwards}
+@keyframes ln{to{opacity:1}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <aside class="rail">
+    <div class="mark" aria-hidden="true">PK</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h1>Pranay Kumar Piyush</h1>
+      <p class="role"><strong>Backend engineer.</strong> Java, Spring Boot and Google Cloud. Currently Product Engineer 2 at Rappit.</p>
+    </div>
+    <ul class="facts">
+      <li><span>Based</span><span>Coimbatore, India</span></li>
+      <li><span>Exp.</span><span>3.5 years, 2 promotions</span></li>
+      <li><span>Motto</span><span>Full-time learner</span></li>
+    </ul>
+    <div class="links">
+      <a class="btn" href="https://www.linkedin.com/in/pranaykrpiyush/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/pranaykrpiyush" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <nav class="toc" aria-label="Sections">
+      <a href="#work"><code>/work</code>Release log</a>
+      <a href="#builds"><code>/builds</code>Off the clock</a>
+      <a href="#stack"><code>/stack</code>Toolbox</a>
+      <a href="#edu"><code>/edu</code>Education</a>
+      <a href="#hello"><code>/hello</code>Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section aria-label="Introduction">
+      <div class="term" role="img" aria-label="A startup-log style summary for Pranay's career: Java 25, Spring Boot 4, profiles backend, gcp and ai, started in 3.5 years.">
+        <div class="term-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span>pranay@coimbatore: ~/career</span>
+          <button class="replay" id="replay" type="button">Replay boot</button>
+        </div>
+<div class="term-body" id="term"><span class="ln banner">  ████   ████    ███   █   █   ███   █   █
+  █   █  █   █  █   █  ██  █  █   █   █ █
+  ████   ████   █████  █ █ █  █████    █
+  █      █  █   █   █  █  ██  █   █    █
+  █      █   █  █   █  █   █  █   █    █</span>
+<span class="ln"><span class="t-dim"> :: career runtime ::</span>            <span class="t-key">(v3.5)</span></span>
+
+<span class="ln"><span class="t-dim">2019-07</span> <span class="t-info">INFO</span>  Booting from CUSAT, Kochi <span class="t-dim">(B.Tech, Computer Science)</span></span>
+<span class="ln"><span class="t-dim">2021-06</span> <span class="t-info">INFO</span>  Loaded module <span class="t-key">flutter-android</span> <span class="t-dim">from internships</span></span>
+<span class="ln"><span class="t-dim">2023-07</span> <span class="t-info">INFO</span>  Starting PranayApplication using <span class="t-key">Java 25</span> at <span class="t-key">Rappit</span></span>
+<span class="ln"><span class="t-dim">2023-07</span> <span class="t-info">INFO</span>  Active profiles: <span class="t-key">backend</span>, <span class="t-key">gcp</span>, <span class="t-key">ai</span></span>
+<span class="ln"><span class="t-dim">2025-01</span> <span class="t-info">INFO</span>  Promotion applied: Associate SE → <span class="t-key">Software Engineer 2</span></span>
+<span class="ln"><span class="t-dim">2026-01</span> <span class="t-info">INFO</span>  Promotion applied: SE 2 → <span class="t-key">Product Engineer 2</span></span>
+<span class="ln"><span class="t-dim">2026-01</span> <span class="t-info">INFO</span>  MCP server registered with Spring AI <span class="t-dim">(agents can now talk to the platform)</span></span>
+<span class="ln"><span class="t-dim">  now  </span> <span class="t-info">INFO</span>  Started <span class="t-key">PranayApplication</span> in <span class="t-key">3.5 years</span> <span class="t-dim">(still learning)</span> <span class="cursor" aria-hidden="true"></span></span></div>
+      </div>
+      <p class="lede">I build the parts of software people only notice when they break: <em>APIs, data pipelines, auth and the cloud underneath</em>. At Rappit I work on a low-code platform that generates whole Spring Boot applications, and much of my work lands in the shared library those apps are built on.</p>
+      <div class="metrics">
+        <div class="metric"><b>10×</b><span>import throughput after rebuilding pipelines on Spring Batch</span></div>
+        <div class="metric"><b>90%</b><span>dev cloud cost cut with a local GCP stand-in I built (€600 → €60 a month)</span></div>
+        <div class="metric"><b>50%</b><span>cloud cost cut with CI/CD pipelines and Cloud Run tuning</span></div>
+        <div class="metric"><b>15+</b><span>consuming modules carried through the Java 25 and Spring Boot 4 upgrade</span></div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">/work · release log</span>
+        <h2>Three releases at Rappit</h2>
+        <p class="co">Rappit, Coimbatore · a low-code platform that generates full-stack applications · Jul 2023 – present</p>
+      </div>
+      <div class="log">
+        <article class="rel current">
+          <div class="rel-head"><span class="ver">v3 · current</span><h3>Product Engineer 2</h3><span class="when">Jan 2026 – now</span></div>
+          <ul>
+            <li>Led the upgrade of <b>be-gen-lib</b>, the platform's core Java library, to Java 25 and Spring Boot 4, clearing removed APIs and dependency conflicts across 15+ consuming modules.</li>
+            <li>Built <b>Model Context Protocol servers with Spring AI</b> so AI agents and assistants can work directly with the platform and the apps it generates.</li>
+            <li>Replaced custom auth in every generated app with <b>Google Cloud Identity Platform</b> for enterprise SSO and federated login.</li>
+            <li>Leading the GCP Landing Zone migration (VPC Service Controls, Shared VPC, org policies) and SOC 2 Type II work: audit logs, least-privilege IAM, encryption at rest and in transit.</li>
+          </ul>
+        </article>
+        <article class="rel">
+          <div class="rel-head"><span class="ver">v2</span><h3>Software Engineer 2</h3><span class="when">Jan 2025 – Dec 2025</span></div>
+          <ul>
+            <li>Rebuilt bulk data import on <b>Spring Batch</b> with chunking, parallel steps and skip/retry policies: 10× throughput and no more SLA breaches.</li>
+            <li>Implemented the <b>transactional outbox pattern</b> for at-least-once event delivery between microservices.</li>
+            <li>Added Elasticsearch search with custom analyzers, and BigQuery analytics on partitioned tables.</li>
+            <li>Moved programmatic transactions to declarative <code>@Transactional</code> with the right propagation and isolation, and lifted be-gen-lib's SIG maintainability score above the industry benchmark.</li>
+          </ul>
+        </article>
+        <article class="rel">
+          <div class="rel-head"><span class="ver">v1</span><h3>Associate Software Engineer</h3><span class="when">Jul 2023 – Dec 2024</span></div>
+          <ul>
+            <li>Migrated services from raw JDBC to Spring Data JPA with typed queries and pagination, removing N+1 queries.</li>
+            <li>Built GitLab CI/CD pipelines (compile, test, Dockerize, deploy) and tuned Cloud Run, halving cloud cost.</li>
+            <li>Added PostgreSQL support to generated Spring Boot and Jersey apps; built streaming Excel imports with per-row validation and rollback.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="aside-note">
+        <span class="eyebrow">Along the way</span>
+        <p>On my own initiative, I built a local development tool that runs Rappit's generated apps without a real GCP project, swapping Cloud SQL and other GCP services for local equivalents. It cut dev cloud costs by 90%, from €600 to €60 a month. I've also mentored new graduates and experienced hires through onboarding.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow">Outside the release log</span>
+        <div class="earlier">
+          <div><b>Junior Android Developer</b><span>digiOmega · part-time · 2021–2022</span></div>
+          <div><b>Flutter Developer Intern</b><span>One Rupee Commerce · remote · 2021</span></div>
+          <div><b>E-Voting System</b><span>Spring Boot 3.2, OAuth2/JWT, optimistic locking for simultaneous votes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE PROJECTS -->
+    <section id="builds">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">/builds · off the clock</span>
+        <h2>What I build for fun</h2>
+        <p class="lede" style="font-size:17px">Side projects are where I take things apart, from the kernel up to the app on my phone.</p>
+      </div>
+      <div class="side">
+        <article class="card wide">
+          <div class="inner">
+            <span class="tag">Systems · in progress</span>
+            <h3>My own Linux distro</h3>
+            <p>Building a Linux distribution from source with Linux From Scratch: toolchain, kernel, init and all.</p>
+          </div>
+<div class="lfs" aria-hidden="true"><span class="ok"># the LFS route</span>
+1  cross-toolchain
+2  temporary tools
+3  chroot and base system
+4  kernel and bootloader
+5  boot it</div>
+        </article>
+        <article class="card">
+          <span class="tag">Android · Kotlin</span>
+          <h3>Authenticator</h3>
+          <p>An offline 2FA app for TOTP, HOTP and Steam codes, with an encrypted vault, biometric unlock and import from Google Authenticator.</p>
+          <div class="foot"><a href="https://github.com/pranaykrpiyush/authenticator" target="_blank" rel="noopener">github.com/pranaykrpiyush/authenticator</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Content · AI video</span>
+          <h3>Only Sci Facts</h3>
+          <p>A science explainer series made with AI video tools, posted as YouTube Shorts and Instagram Reels. I also wrote a Claude skill that picks the best episodes, writes captions and publishes them.</p>
+          <div class="foot"><span>@onlyfactsci</span><a href="https://github.com/pranaykrpiyush/video-publishing-skill" target="_blank" rel="noopener">publishing skill</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">Android · Kotlin</span>
+          <h3>Open-source VPN</h3>
+          <p>An open-source VPN application written in Kotlin.</p>
+          <div class="foot"><a href="https://github.com/pranaykrpiyush/vpn-open-source" target="_blank" rel="noopener">vpn-open-source</a></div>
+        </article>
+        <article class="card">
+          <span class="tag">AI agents</span>
+          <h3>Claude skills and automation</h3>
+          <p>I write Claude skills that drive a real browser to finish a job end to end, like publishing a batch of videos and checking each post went live. At work I build MCP servers with Spring AI.</p>
+          <div class="foot"><span>MCP · Spring AI · Claude Code</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">/stack · toolbox</span>
+        <h2>What I reach for</h2>
+      </div>
+      <div class="stack">
+        <div><h3>Backend</h3><div class="chips">
+          <span class="chip k">Java 8–25</span><span class="chip k">Spring Boot 2–4</span><span class="chip">Spring Data JPA</span><span class="chip">Hibernate</span><span class="chip">Spring Security</span><span class="chip">Spring Batch</span><span class="chip k">Spring AI</span><span class="chip">Jersey</span><span class="chip">REST</span><span class="chip">Microservices</span></div></div>
+        <div><h3>Data and search</h3><div class="chips">
+          <span class="chip k">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Elasticsearch</span><span class="chip">BigQuery</span><span class="chip">Firestore</span><span class="chip">SQL</span></div></div>
+        <div><h3>Cloud and delivery</h3><div class="chips">
+          <span class="chip k">Google Cloud</span><span class="chip">Cloud Run</span><span class="chip">Cloud SQL</span><span class="chip">IAM</span><span class="chip">GCIP</span><span class="chip">VPC Service Controls</span><span class="chip">Docker</span><span class="chip">GitLab CI/CD</span><span class="chip">Maven</span><span class="chip">SonarQube</span></div></div>
+        <div><h3>Architecture and security</h3><div class="chips">
+          <span class="chip">Outbox pattern</span><span class="chip">Transactions and isolation</span><span class="chip">OAuth2</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">SOC 2</span><span class="chip">SOLID</span></div></div>
+        <div><h3>Frontend and mobile</h3><div class="chips">
+          <span class="chip">Angular 15–19</span><span class="chip">Kotlin</span><span class="chip">Flutter / Dart</span><span class="chip">JavaScript</span></div></div>
+        <div><h3>AI tooling</h3><div class="chips">
+          <span class="chip k">Model Context Protocol</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span></div></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="edu">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">/edu · education</span>
+        <h2>Where it started</h2>
+      </div>
+      <div class="edu">
+        <div class="edu-main">
+          <span class="when">2019 – 2023</span>
+          <h3>B.Tech, Computer Science and Engineering</h3>
+          <p class="co">Cochin University of Science and Technology, Kochi</p>
+          <p style="font-size:14.5px;margin-top:8px">Volunteered with the National Service Scheme through all four years, and solved competitive programming problems in C++ on Codeforces.</p>
+        </div>
+        <ul class="certs" aria-label="Certifications">
+          <li>Data Structures in C++ · Coding Ninjas<span>2020</span></li>
+          <li>Understanding Android Application Basics · Pluralsight<span>2020</span></li>
+          <li>Introduction to AR and ARCore · Coursera<span>2020</span></li>
+          <li>Web Development · TinkerHub<span>2020</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="hello">
+      <div class="contact">
+        <span class="eyebrow">/hello</span>
+        <h2>Let's talk backend.</h2>
+        <p style="max-width:56ch">Questions about Spring Boot, GCP, MCP, or something you're building? Email is the fastest way to reach me.</p>
+        <div class="mail">
+          <code id="email">pranaykrpiyush@gmail.com</code>
+          <button class="btn" id="copy" type="button">Copy email</button>
+          <span class="copied" id="copied" aria-live="polite"></span>
+        </div>
+        <div class="links">
+          <a class="btn" href="https://www.linkedin.com/in/pranaykrpiyush/" target="_blank" rel="noopener">linkedin.com/in/pranaykrpiyush</a>
+          <a class="btn" href="https://github.com/pranaykrpiyush" target="_blank" rel="noopener">github.com/pranaykrpiyush</a>
+        </div>
+      </div>
+      <footer>Built from source. Last deploy: November 2026.</footer>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var term=document.getElementById('term');
+  var lines=term.querySelectorAll('.ln');
+  function play(){
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    term.classList.remove('play'); void term.offsetWidth;
+    lines.forEach(function(l,i){ l.style.animationDelay=(i*0.18)+'s'; });
+    term.classList.add('play');
+  }
+  document.getElementById('replay').addEventListener('click',play);
+
+  var btn=document.getElementById('copy'), out=document.getElementById('copied'), email=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var text=email.textContent;
+    function fallback(){ var r=document.createRange(); r.selectNodeContents(email); var s=getSelection(); s.removeAllRanges(); s.addRange(r); out.textContent='Selected. Press Ctrl+C to copy.'; }
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ out.textContent='Copied'; }, fallback);
+      } else fallback();
+    }catch(e){ fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
