@@ -242,9 +242,9 @@ footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
       <p class="lede">I build the parts of software people only notice when they break: <em>APIs, data pipelines, auth and the cloud underneath</em>. At Rappit I work on a low-code platform that generates whole Spring Boot applications, and much of my work lands in the shared library those apps are built on.</p>
       <div class="metrics">
         <div class="metric"><b>10×</b><span>import throughput after rebuilding pipelines on Spring Batch</span></div>
-        <div class="metric"><b>90%</b><span>dev cloud cost cut with a local GCP stand-in I built (€600 → €60 a month)</span></div>
-        <div class="metric"><b>50%</b><span>cloud cost cut with CI/CD pipelines and Cloud Run tuning</span></div>
-        <div class="metric"><b>15+</b><span>consuming modules carried through the Java 25 and Spring Boot 4 upgrade</span></div>
+        <div class="metric"><b>2</b><span>promotions in 2.5 years, from Associate to Product Engineer 2</span></div>
+        <div class="metric"><b>Java 25</b><span>and Spring Boot 4: led the platform's core library upgrade</span></div>
+        <div class="metric"><b>MCP</b><span>servers built with Spring AI so AI agents can work with the platform</span></div>
       </div>
     </section>
 
@@ -259,33 +259,33 @@ footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
         <article class="rel current">
           <div class="rel-head"><span class="ver">v3 · current</span><h3>Product Engineer 2</h3><span class="when">Jan 2026 – now</span></div>
           <ul>
-            <li>Led the upgrade of <b>be-gen-lib</b>, the platform's core Java library, to Java 25 and Spring Boot 4, clearing removed APIs and dependency conflicts across 15+ consuming modules.</li>
-            <li>Built <b>Model Context Protocol servers with Spring AI</b> so AI agents and assistants can work directly with the platform and the apps it generates.</li>
-            <li>Replaced custom auth in every generated app with <b>Google Cloud Identity Platform</b> for enterprise SSO and federated login.</li>
-            <li>Leading the GCP Landing Zone migration (VPC Service Controls, Shared VPC, org policies) and SOC 2 Type II work: audit logs, least-privilege IAM, encryption at rest and in transit.</li>
+            <li>Led the upgrade of the platform's <b>core shared Java library</b> to Java 25 and Spring Boot 4, resolving breaking API changes and dependency conflicts across dependent modules.</li>
+            <li>Built <b>Model Context Protocol servers with Spring AI</b> so AI agents and assistants can work with the platform.</li>
+            <li>Implemented enterprise SSO and federated login with <b>Google Cloud Identity Platform</b>.</li>
+            <li>Contributing to cloud security hardening on Google Cloud: least-privilege IAM, audit logging and encryption.</li>
           </ul>
         </article>
         <article class="rel">
           <div class="rel-head"><span class="ver">v2</span><h3>Software Engineer 2</h3><span class="when">Jan 2025 – Dec 2025</span></div>
           <ul>
-            <li>Rebuilt bulk data import on <b>Spring Batch</b> with chunking, parallel steps and skip/retry policies: 10× throughput and no more SLA breaches.</li>
+            <li>Rebuilt bulk data import on <b>Spring Batch</b> with chunking, parallel steps and skip/retry policies, raising throughput about 10×.</li>
             <li>Implemented the <b>transactional outbox pattern</b> for at-least-once event delivery between microservices.</li>
-            <li>Added Elasticsearch search with custom analyzers, and BigQuery analytics on partitioned tables.</li>
-            <li>Moved programmatic transactions to declarative <code>@Transactional</code> with the right propagation and isolation, and lifted be-gen-lib's SIG maintainability score above the industry benchmark.</li>
+            <li>Integrated Elasticsearch for search and BigQuery for analytics.</li>
+            <li>Moved programmatic transactions to declarative <code>@Transactional</code> with the right propagation and isolation, and improved maintainability by acting on static-analysis findings.</li>
           </ul>
         </article>
         <article class="rel">
           <div class="rel-head"><span class="ver">v1</span><h3>Associate Software Engineer</h3><span class="when">Jul 2023 – Dec 2024</span></div>
           <ul>
             <li>Migrated services from raw JDBC to Spring Data JPA with typed queries and pagination, removing N+1 queries.</li>
-            <li>Built GitLab CI/CD pipelines (compile, test, Dockerize, deploy) and tuned Cloud Run, halving cloud cost.</li>
-            <li>Added PostgreSQL support to generated Spring Boot and Jersey apps; built streaming Excel imports with per-row validation and rollback.</li>
+            <li>Built GitLab CI/CD pipelines (compile, test, Dockerize, deploy) and tuned Cloud Run settings to reduce cloud costs.</li>
+            <li>Added PostgreSQL support to the platform's generated Spring Boot apps; built streaming Excel imports with per-row validation and rollback.</li>
           </ul>
         </article>
       </div>
       <div class="aside-note">
         <span class="eyebrow">Along the way</span>
-        <p>On my own initiative, I built a local development tool that runs Rappit's generated apps without a real GCP project, swapping Cloud SQL and other GCP services for local equivalents. It cut dev cloud costs by 90%, from €600 to €60 a month. I've also mentored new graduates and experienced hires through onboarding.</p>
+        <p>On my own initiative, I built a local development environment that stands in for the platform's cloud services, sharply cutting development cloud costs. I've also mentored new graduates and experienced hires through onboarding.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
         <span class="eyebrow">Outside the release log</span>
@@ -359,7 +359,7 @@ footer{font-size:13px;color:var(--muted);font-family:var(--mono)}
         <div><h3>Cloud and delivery</h3><div class="chips">
           <span class="chip k">Google Cloud</span><span class="chip">Cloud Run</span><span class="chip">Cloud SQL</span><span class="chip">IAM</span><span class="chip">GCIP</span><span class="chip">VPC Service Controls</span><span class="chip">Docker</span><span class="chip">GitLab CI/CD</span><span class="chip">Maven</span><span class="chip">SonarQube</span></div></div>
         <div><h3>Architecture and security</h3><div class="chips">
-          <span class="chip">Outbox pattern</span><span class="chip">Transactions and isolation</span><span class="chip">OAuth2</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">SOC 2</span><span class="chip">SOLID</span></div></div>
+          <span class="chip">Outbox pattern</span><span class="chip">Transactions and isolation</span><span class="chip">OAuth2</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">SOLID</span></div></div>
         <div><h3>Frontend and mobile</h3><div class="chips">
           <span class="chip">Angular 15–19</span><span class="chip">Kotlin</span><span class="chip">Flutter / Dart</span><span class="chip">JavaScript</span></div></div>
         <div><h3>AI tooling</h3><div class="chips">
